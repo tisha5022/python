@@ -1,15 +1,21 @@
-print("Hello World")
+#print("Hello World")
 
-print(' Hello" python')
-print("hello ' python")
-print("""hello
-      python
-      hello
-      tops
-      """)
+#print(' Hello" python')   
+#print("hello ' python")
 
-print("hello","java","hello","python",sep=" | ")
+#multi line print
+#print("""hello
+#      python
+#     hello
+#      tops
+#     """)
 
-print('hello \" python')
+#seprat
+#print("hello","java","hello","python",sep=" | ")
 
-print("hello",end=" ")
+#print('hello \" python')
+
+#print("hello",end=" ")
+#print("world")
+
+print("hello \\\" world")
