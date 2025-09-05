@@ -469,4 +469,4 @@ Ans. A nested if means an if statement inside another if or else block.
 
  Q.1 Introduction to for and while loops.
  =================================================================================
-  
+  Ans. 
