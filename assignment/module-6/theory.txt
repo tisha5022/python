@@ -469,4 +469,297 @@ Ans. A nested if means an if statement inside another if or else block.
 
  Q.1 Introduction to for and while loops.
  =================================================================================
-  Ans. 
+Ans. Python offers two primary loop constructs for repetitive execution of code blocks: for loops and while 
+    loop.
+
+     1. for Loop:-
+    The for loop is designed for iterating over sequences (like lists, tuples, strings, or ranges) or other 
+    iterable
+    objects. It executes a block of code once for each item in the sequence.
+---> Example of a for loop iterating over a list:-
+    fruits = ["apple", "banana", "cherry"]
+    for fruit in fruits:
+        print(fruit)
+
+--->Example of a for loop using range():-
+    for i in range(5):  # Iterates from 0 to 4
+        print(i)
+
+    2. while Loop:
+    The while loop repeatedly executes a block of code as long as a specified condition remains True. It is 
+    suitable when 
+    the number of iterations is not known in advance and the loop's termination depends on a condition becoming 
+    False. 
+--->Example of a while loop:-
+    count = 0
+    while count < 5:
+        print("Count is:", count)
+        count += 1  # Increment count to eventually make the condition False
+
+    ====>Key Differences and Use Cases:-
+    --->for loop:-
+`               Best suited when you need to iterate over a known sequence or a fixed number of times.
+    --->while loop:-
+                Ideal when the number of iterations is uncertain, and the loop continues based on a dynamic 
+                condition.
+
+
+Q2.How loops work in Python. 
+================================================
+Ans. Python utilizes two primary types of loops for repetitive execution of code blocks: for loops and while 
+    loops.
+
+    1. for loops:-
+    for loops in Python are designed for iterating over sequences (such as lists, tuples, strings, or ranges) 
+    or other iterable objects. The core mechanism involves:Iteration Variable: A variable is designated to 
+    temporarily hold each item from the iterable during each pass (iteration) of the loop.Iterating through 
+    the sequence: The loop processes each item in the iterable one by one, from the beginning to the end.
+    Executing the code block: For each item, the indented code block within the for loop is executed.
+---->Example:
+    fruits = ["apple", "banana", "cherry"]
+    for fruit in fruits:
+        print(fruit)
+
+    2. while loops:-
+    while loops are used to repeatedly execute a block of code as long as a specified condition remains true. 
+    The process involves:Condition Check: Before each iteration, the while loop evaluates a given boolean 
+    condition.Executing the code block: If the condition evaluates to True, the indented code block within the 
+    while loop is executed.Re-evaluating the condition: After the code block executes, the condition is 
+    re-evaluated. The loop continues as long as the condition remains True.Termination: The loop terminates 
+    when the condition evaluates to False.
+---->Example:
+    count = 0
+    while count < 5:
+        print(count)
+        count += 1
+
+====>Control Flow Statements:-
+
+--->Both for and while loops can be managed further using control flow statements:
+
+---->break:-
+Terminates the loop entirely, regardless of the loop's condition or remaining iterations.
+
+---->continue:-
+Skips the current iteration and proceeds to the next iteration of the loop.
+
+---->else (with loops):-
+An optional else block can be included with both for and while loops. This else block executes only if the loop completes
+normally (i.e., not terminated by a break statement).
+
+
+Q3.Using loops with collections (lists, tuples, etc.).
+=====================================================================
+Ans. Using Loops with Collections in Python
+
+1. What are Collections?
+
+--->Collections are data structures in Python that store multiple items together.
+--->Examples:- list, tuple, set, dictionary, range.
+
+2. Why use Loops with Collections?
+
+--->To access each element in the collection.
+--->To perform operations like printing, modifying, or checking conditions.
+--->To avoid repeating code (automation).
+
+3. Loops used with Collections:-
+
+---->for loop:-
+            Most commonly used to iterate over collections.
+         --->Syntax:
+                for item in collection:
+                    # do something
+
+                Example with list:
+
+                    fruits = ["apple", "banana", "mango"]
+                    for fruit in fruits:
+                         print(fruit)
+
+---->while loop
+            Uses an index to access elements.
+            Useful when we don’t know the end in advance.
+            Example with list:
+            fruits = ["apple", "banana", "mango"]
+            i = 0
+            while i < len(fruits):
+                print(fruits[i])
+                i += 1
+
+4. Using Loops with range():-
+
+---->range() generates a sequence of numbers.
+---->Often used with for loops to repeat a block of code multiple times.
+---->Example:
+            for i in range(5):
+                print("Hello", i)
+
+====>Loops help us iterate collections like list, tuple, set, dictionary, and range.
+
+--->for loop → directly works with items.
+
+--->while loop → works with index.
+
+--->range() → generates numbers for controlled iteration.
+
+
+
+Q-8.Control Statements (Break, Continue, Pass) 
+
+Q1.Understanding the role of break, continue, and pass in Python loops. 
+=============================================================================================
+Ans. In Python, break, continue, and pass are control flow statements used within loops to alter their 
+     execution. 
+
+----->break statement:-
+==>The break statement immediately terminates the loop in which it is encountered.
+==>Execution then proceeds to the statement immediately following the loop.
+==>break is often used when a specific condition is met, and further iterations of the loop are no longer 
+   necessary.
+   ==> for i in range(5):
+        if i == 3:
+            break
+        print(i)
+    -->Output:
+      0
+      1
+      2
+
+----->continue statement:
+==>The continue statement skips the rest of the current iteration of the loop. 
+==>Execution then proceeds to the next iteration of the loop.
+==>continue is used when a specific condition is met, and the remaining code within the current iteration 
+   should be bypassed, but the loop itself should continue.
+   ==> for i in range(5):
+        if i == 2:
+            continue
+        print(i)
+    -->Output:
+      0
+      1
+      3
+      4
+
+----->pass statement:
+==>The pass statement is a null operation; it does nothing.
+==>It is used as a placeholder where a statement is syntactically required but no action is desired.
+==>pass is useful when defining empty functions, classes, or as a temporary placeholder within conditional 
+   blocks or loops that will be implemented later.
+  ==>for i in range(3):
+        if i == 1:
+            pass
+        print(i)
+    -->Output:
+       0
+       1
+       2
+
+
+
+Q-9.String Manipulation
+
+Q1.Understanding how to access and manipulate strings. 
+=============================================================================
+Ans. Textual data in Python is handled with ”str” objects, or strings. Strings are immutable(fixed/rigid) 
+     sequences of Unicode code points.
+
+===>String literals are written in a variety of ways:-
+---->Single quotes: 'allows embedded "double" quotes'
+----> Double quotes: "allows embedded 'single' quotes".
+----> Triple quoted: '''Three single quotes''', """Three double quotes"""
+----> Triple quoted strings may span multiple lines - all associated whitespace will
+      be included in the string literal.
+
+
+Q2.Basic operations: concatenation, repetition, string methods (upper(), lower(), etc.). 
+====================================================================================================
+Ans. str.capitalize():-
+ Return a copy of the string with its first character capitalized and the rest lowercased.
+
+====>str.casefold():-
+ Return a case folded copy of the string. Case folded strings may be used for caseless matching.
+
+====> str.center(width[, fillchar]):-
+ Return centered in a string of length width. Padding is done using the specified fillchar (default is an ASCII 
+ space). The original string is returned ifwidth is less than or equal to len(s).
+
+====> str.count(sub[, start[, end]]):-
+ Return the number of non-overlapping occurrences of substring sub in the range [start, end]. Optional 
+ arguments start and  end are interpreted as in slice notation.
+
+====>str.endswith(suffix[, start[, end]]):-
+ Return True if the string ends with the specified suffix, otherwise return False.Suffix can also be a tuple of 
+ suffixes  to look for. With optional start, test beginning at that position. With optional end, stop comparing
+ at that position. str.find(sub[, start[, end]]) Return the lowest index in the string where substring sub is 
+ found within the slice  s [start: end]. Optional arguments start and end are interpreted as in slice notation. 
+ Return -1 if sub is not found.
+
+ ====>str.format(*args, **kwargs):-
+ Perform a string formatting operation. The string on which this method is called can contain literal text or 
+ replacement fields delimited by braces{}. Each replacement field contains either the numeric index of a 
+ positional argument, or the  name of a keyword argument. Returns a copy of the string where each replacement 
+ field is replaced with the string value of the corresponding argument. str.index (sub [, start [, end]]) Like 
+ find (), but raise Value Error when the substring is not found.
+
+====> str.isalnum():-
+ Return true if all characters in the string are alphanumeric and there is at least one character, false 
+ otherwise. A  character c is alphanumeric if one of the following returns True: c.isalpha(), c.isdecimal(), 
+ c.isdigit(), or c.isnumeric().
+
+====> str.isidentifier():-
+ Return true if the string is a valid identifier according to the language definition
+
+====> str.islower():-
+ Return true if all cased characters in the string are lowercase and there is at least one cased character, 
+ false otherwise.
+
+====> str.istitle():-
+ Return true if the string is a titlecased string and there is at least one character, for example uppercase 
+ characters may only follow uncased characters and lowercase characters only cased ones. Return false otherwise.
+
+====> str.isupper():-
+ Return true if all cased characters in the string are uppercase and there is at least one cased character, 
+ false  otherwise.
+
+====> str.join(iterable):-
+  Return a string which is the concatenation of the strings in the iterable. A TypeError will be raised if 
+  there are any non-string values initerable, including bytes objects. The separator between elements is the 
+  string providing this method.
+
+====>str.ljust(width[, fillchar]):-
+ Return the string left justified in a string of length width. Padding is done using the specified fillchar 
+ (default is an ASCII space). The original string is returned if width is less than or equal to len(s).
+
+====> str.lower():-
+ Return a copy of the string with all the cased characters converted to lowercase.
+ 
+====>str.replace(old, new[, count]):-
+ Return a copy of the string with all occurrences of substring old replaced by new. If the optional argument 
+ count is  given, only the first countoccurrences are replaced.
+
+====> str.split(sep=None, maxsplit=-1):-
+ Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most 
+ maxsplit splits are done (thus, the list will have at most maxsplit+1 elements). If maxsplit is not specified 
+ or -1, then there is no limit on the number of splits
+
+====>str.title():-
+ Return a titlecased version of the string where words start with an uppercase character and the remaining 
+ characters are lowercase.
+
+ 
+ Q3.String slicing. 
+========================================================================
+ Ans. Slicing:-
+---->Like other programming languages, it’s possible to access individual characters of a string by using 
+     array-like indexing syntax. In this we can access each and every element of string through their index 
+     number and the indexing starts from 0. Python does index out of bound checking.
+---->So, we can obtain the required character using syntax,string_name[index_position]:-
+---->The positive index_position denotes the element from the starting(0) and the negative index shows the 
+     index from the end(-1).
+---->To extract substring from the whole string then then we use the syntax like
+---->string_name[beginning: end : step]beginning represents the starting index of string end denotes the end 
+     index of string which is not inclusive steps denotes the distance between the two words.
+---->Example :print x[2:5] # Prints substring stepping up 2nd character
+---->Example : print [4:10:2] # from 4th to 10th character
+---->print x[-5:-3] # Prints 3rd character from rear from 3 to 5
