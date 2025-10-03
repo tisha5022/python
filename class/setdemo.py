@@ -93,7 +93,10 @@ j = {100,200}
 
 # print(n.isdisjoint(m))
 
-m = {"Tisha","Sanket","Vansh","Shriya"}
-n = {"Devanshi","Rinkesh","Tisha","Shriya"}
+# m = {"Tisha","Sanket","Vansh","Shriya"}
+# n = {"Devanshi","Rinkesh","Tisha","Shriya"}
 
-print(n.isdisjoint(m))
+# print(n.isdisjoint(m))
+
+fs = frozenset({10,20,30,40})
+print(fs)

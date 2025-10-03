@@ -266,3 +266,193 @@
 # print("vansh".zfill(50))
 
 # print("vansh".center(50,"*"))     
+
+# ============================== lab 6 ==========================================
+
+# Q-1 Write a generator function that generates the first 10 even numbers. 
+
+# def generate_even_numbers():
+#     num = 0
+#     count = 0
+#     while count < 10:
+#         yield num
+#         num += 2
+#         count += 1
+
+# for even in generate_even_numbers():
+#     print(even)
+    
+# Q-2. Write a Python program that uses a custom iterator to iterate over a list of integers.
+
+# l = [100,200,300,400,500,600,700,800,900,1000]
+
+# k=iter(l)
+# print(next(k))
+# print(next(k))
+# print(next(k))
+# print(next(k))
+# print(next(k))
+# print(next(k))
+
+# ============================== lab 7 ==========================================
+
+#Q-1. Practical Example: 1) Write a Python program to print "Hello" using a string. 
+
+# print("Hello")
+
+
+#Q-2.Practical Example: 2) Write a Python program to allocate a string to a variable and print it
+
+# program="Hello Pyhton!"
+# print(program)
+
+#Q-3. Practical Example: 3) Write a Python program to print a string using triple quotes. 
+
+# print(""" My Name is Tisha
+#     I am 20 Year Old
+#     Currently Learning Python""")
+
+#Q-4.Practical Example: 4) Write a Python program to access the first character of a string using index value.
+
+# st=("Hello World!")
+# print(st[0]) 
+
+
+#Q-5.Practical Example: 5) Write a Python program to access the string from the second position onwards using
+# slicing.
+
+# t=("Hello World! Hello Python!") 
+# print(t[1:])
+
+#Q-6.Practical Example: 6) Write a Python program to access a string up to the fifth character. 
+
+# T=("Hello World!")
+# print(T[:5])
+
+
+#Q-7.Practical Example: 7) Write a Python program to print the substring between index values 1 and 4.
+
+# T1=("Hello World! Hello Pyhton!")
+# print(T1[1:5]) 
+
+
+#Q-8.Practical Example: 8) Write a Python program to print a string from the last character. 
+
+# A=("Hello World")
+# print(A[-1])
+
+
+#Q-9.Practical Example: 9) Write a Python program to print every alternate character from the string starting from index 1.
+
+# b=("Hello World! Hello Pyhton!") 
+# print(b[1::2])
+
+# ======================================= lab 10 ==========================================
+
+
+#Q-1.Write a Python program to apply the map() function to square a list of numbers. 
+
+# l=[1,2,3,4,5,6,7,8,9]
+
+# s=map(lambda a:a*a,l)
+# print(list(s))
+
+
+#Q-2.Write a Python program that uses reduce() to find the product of a list of numbers.
+ 
+# t=[1,2,3,4,5,6,7,8,9,10]
+
+# from functools import reduce
+
+# product=reduce(lambda a,b: a*b,t)
+# print(product)
+
+
+# Q-3 Write a Python program that filters out even numbers using the filter() function. 
+
+# l = [1,2,3,4,5,6,7,8,9,10]
+
+# s= filter(lambda a : a%2 == 0,l)
+# print(list(s))
+
+
+#==================================================><==================================================
+# --------------------------------------------->Assessment:<-------------------------------------------
+#==================================================><==================================================
+
+# Create a mini-project where students combine conditional statements, loops, and functions 
+# to create a basic Python application, such as a simple calculator or a grade management system.
+
+
+#---------------> a simple calculator:-
+
+# def add(num1,num2):
+#     return num1+num2
+
+# def subtraction(num1,num2):
+#     return num1-num2
+
+# def Multipection(num1,num2):
+#     return num1*num2
+
+# def divide(num1,num2):
+#     return num1/num2
+
+# def Moduls(num1,num2):
+#  return num1%num2
+
+# def Exponentiation(num1,num2):
+#     return num1**num2
+
+# def Floor_division(num1,num2):
+#     return num1//num2
+
+# print("Select Operation:")
+# print("1. add")
+# print("2. subtraction")
+# print("3. Multipection")
+# print("4. divide")
+# print("5. Moduls")
+# print("6. Exponentiation")
+# print("7. Floor_division")
+
+# choice=input("Enter Your Choice:")
+# num1=float(input("Enetr the value of num1:"))
+# num2=float(input("Enetr the value of num2:"))
+
+# if choice=="1":
+#     print("Result:",add(num1,num2))
+# elif choice=="2":
+#     print("Result:",subtraction(num1,num2))
+# elif choice=="3":
+#  print("Result:",Multipection(num1,num2))
+# elif choice=="4":
+#     print("Result:",divide(num1,num2))
+# elif choice=="5":
+#     print("Result:",Moduls(num1,num2))
+# elif choice=="6":
+#     print("Result:",Exponentiation(num1,num2))
+# elif choice=="7":
+#     print("Result:",Floor_division(num1,num2))
+# else:
+#     print("Sorry! Invalid Choice")
+
+
+#---------------> a grade management system.:-
+
+# choice="y"
+# while choice != "n" :
+#     marks=int(input("Enter the Marks:"))
+
+#     if marks>=91 and marks<=100:
+#         print("your grade is A")
+#     elif marks>=71 and marks<=90:
+#         print("your grade is B")
+#     elif marks>=51 and marks<=70:
+#         print("your grade is C")
+#     elif marks>=35 and marks<=50:
+#         print("your grade is D")
+#     else:
+#         print("invalid input if out of range(0-100)")
+
+#     choice=input("do you want to continue? yes or no : ")
