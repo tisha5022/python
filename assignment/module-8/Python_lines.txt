@@ -1,0 +1,4 @@
+Python is easy to learn.
+Functions help organize code.
+Loops are used for repetition.
+Lists can store multiple values.

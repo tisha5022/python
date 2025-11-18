@@ -1,0 +1,99 @@
+* {
+
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: #020024;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(57, 57, 180) 0%, rgb(8, 17, 141) 73%);
+}
+
+header {
+    height: 15%;
+    width: 100%;
+    background-color: black;
+}
+
+.logo {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    width: 80%;
+    height: 100%;
+
+    float: right;
+    color: #FFF;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.main {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    height: 250px;
+    width: 350px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #121c7a;
+    background: linear-gradient(0deg, rgb(230, 230, 238) 0%, rgb(206, 194, 168) 100%);
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+}
+
+footer {
+    height: 15%;
+    width: 100%;
+    color: white;
+    display: flex;
+
+    justify-content: center;
+}
+
+.textfield {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.dropdown {
+    width: 150px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.btn{
+    width: 75px;
+    height:30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(196, 130, 51);
+}
+
+/* .btn:hover{
+    background-color: #22C1C3;
+    width: 77px;
+    height:32px;
+} */
