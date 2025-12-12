@@ -9,7 +9,8 @@ def index(request):
         name = request.POST['name']
         price = request.POST['price']
         qty = request.POST['qty']
-        product.objects.create(name=name,price=price,qty=qty)
+        image = request.FILES['image']
+        product.objects.create(name=name,price=price,qty=qty,image=image)
         return render(request,"index.html",{"products":products})
     else:
        return render(request,"index.html",{"products":products})
@@ -32,6 +33,9 @@ def edit_product(request):
         prod.name = name
         prod.price = price
         prod.qty = qty
+        if request.FILES:
+            prod.image = request.FILES['image']
+        
         prod.save()
         return render(request,"index.html",{"products":products})
     else:
