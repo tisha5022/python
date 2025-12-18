@@ -1,0 +1,231 @@
+Module-9: Python DB and Framework 
+
+1. HTML in Python 
+
+Q-1 Introduction to embedding HTML within Python using web frameworks like Django or Flask. 
+==============================================================================================
+Ans: • Python web frameworks like Django and Flask allow embedding HTML using 
+templates. 
+• HTML files are placed inside a templates folder, and Python views render them with 
+dynamic data. 
+• For Example in Django, HTML is not written directly inside Python code. 
+• Django uses a template system that lets you embed dynamic data into HTML pages 
+using template tags and variables. 
+• The view (Python function) sends data to the template, which is then rendered into HTML 
+and displayed to the user. 
+
+Example: Embedding HTML in Django using Templates 
+
+Step 1: Create a Django view:- 
+
+    # myapp/views.py 
+    from django.shortcuts import render 
+    def home(request): 
+        # Python data 
+    context = { 
+    'title': 'Welcome to Django', 
+    'username': 'Alice' 
+    } 
+
+# Render the HTML template with the data 
+return render(request, 'home.html', context) 
+
+Step 2: Create a URL pattern (urls.py)
+
+    # myapp/urls.py 
+    from django.urls import path 
+    from . import views 
+    urlpatterns = [ 
+    path('', views.home, name='home'),
+    ] 
+
+Step 3: Create the HTML Template (templates/home.html) 
+
+    <!DOCTYPE html> 
+    <html> 
+    <head> 
+        <title>{{ title }}</title> 
+    </head> 
+    <body> 
+        <h1>{{ title }}</h1> 
+        <p>Hello, {{ username }}! Welcome to your first Django web page.</p> 
+    </body> 
+    </html> 
+
+• Output:-
+
+    Welcome to Django 
+    Hello, Alice! Welcome to your first Django web page.
+
+Q-2 Generating dynamic HTML content using Django templates. 
+====================================================================
+Ans:• Django templates use template tags and variables to generate dynamic HTML. 
+
+➢ Example:
+
+    <h1>Welcome, {{ user.username }}!</h1> 
+    {% if user.is_authenticated %} 
+        <p>You are logged in.</p> 
+    {% endif %} 
+    
+• The view passes a context dictionary: 
+return render(request, 'index.html', {'user': user}) 
+
+2. CSS in Python 
+
+Q-1 Integrating CSS with Django templates. 
+===================================================
+Ans:• CSS files are placed in the static directory. 
+• Load static files in the template: 
+
+➢ Example:-
+
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+Q-2 How to serve static files (like CSS, JavaScript) in Django. 
+====================================================================
+Ans: ➢ Add 'django.contrib.staticfiles' in INSTALLED_APPS. 
+➢ Define STATIC_URL and STATICFILES_DIRS in settings.py: 
+➢ STATIC_URL = '/static/' 
+➢ STATICFILES_DIRS = [BASE_DIR / "static"] 
+➢ Use {% load static %} in templates. 
+
+3. JavaScript with Python 
+
+Q-1 Using JavaScript for client-side interactivity in Django templates. 
+================================================================================
+Ans: • JavaScript enhances interactivity (form validation, AJAX calls). 
+• Include scripts in templates: 
+
+    <script> 
+        function greet() { 
+            alert("Hello from JavaScript!"); 
+        } 
+    </script> 
+    <button onclick="greet()">Click Me</button> 
+
+Q-2 Linking external or internal JavaScript files in Django.
+=====================================================================
+Ans: ➢ Place JS files in the static directory:
+
+➢ {% load static %} 
+➢ <script src="{% static 'js/script.js' %}"></script>
+
+4. Django Introduction 
+
+Q-1 Overview of Django: Web development framework.
+=========================================================
+Ans: - Django is a high-level Python web framework for rapid development. 
+- It follows the MVT architecture and includes tools for ORM, admin, authentication, and 
+templating. 
+
+Q-2 Advantages of Django (e.g., scalability, security).
+=============================================================
+Ans: - Scalable and secure 
+- Rapid development 
+- Built-in ORM and admin 
+- Automatic URL routing and form handling 
+- Reusable apps 
+
+Q-3 Django vs. Flask comparison: Which to choose and why. 
+==============================================================
+Ans:                                                
+Feature              Django                         Flask                                      
+Type            Full-stack framework             Micro-framework 
+Structure       MVT (Model-View-Template)        Flexible, minimal   
+Use case        Large projects                   Small/simple apps
+Built-in        Admin                            Yes No 
+ORM             Yes                              Optional
+
+5. Virtual Environment 
+
+Q-1 Understanding the importance of a virtual environment in Python projects.
+==================================================================================
+Ans:• Keeps dependencies isolated per project. 
+• Prevents version conflicts between packages. 
+• Makes projects reproducible across systems. 
+
+Q-2 Using venv or virtualenv to create isolated environments. 
+==================================================================
+Ans: ➢ python -m venv env 
+source env/bin/activate       # Linux/Mac  
+env\Scripts\activate          # Windows 
+
+6. Project and App Creation 
+
+Q-1 Steps to create a Django project and individual apps within the project. 
+==================================================================================
+Ans: ➢ django-admin startproject myproject 
+➢ cd myproject 
+➢ python manage.py startapp myapp 
+➢ Add the app to INSTALLED_APPS in settings.py. 
+
+Q-2 Understanding the role of manage.py, urls.py, and views.py. 
+======================================================================
+Ans: • manage.py: Command-line utility for running and managing the project. 
+• urls.py: Maps URLs to specific views (routing). 
+• views.py: Contains Python functions/classes that handle HTTP requests. 
+
+7. MVT Pattern Architecture
+
+Q-1 Django’s MVT (Model-View-Template) architecture and how it handles request-response cycles. 
+===================================================================================================
+Ans: • Model: Handles database interaction. 
+• View: Contains business logic. 
+• Template: Defines HTML presentation. 
+• Request-response cycle: 
+• Request → URL → View → Model → Template → Response 
+
+8. Django Admin Panel 
+
+Q-1 Introduction to Django’s built-in admin panel. 
+===========================================================
+Ans:• Automatically created for managing database models. 
+• Accessible at /admin. 
+• Requires superuser creation: 
+• python manage.py createsuperuser 
+
+Q-2 Customizing the Django admin interface to manage database records.
+===========================================================================
+Ans: ➢ Register models and customize display: 
+from django.contrib import admin 
+from .models import Product 
+class ProductAdmin(admin.ModelAdmin): 
+list_display = ('name', 'price') 
+admin.site.register(Product, ProductAdmin) 
+
+9. URL Patterns and Template Integration
+
+Q-1 Setting up URL patterns in urls.py for routing requests to views. 
+============================================================================
+Ans: from django.urls import path 
+from . import views 
+urlpatterns = [ 
+path('', views.home, name='home'), 
+] 
+
+Q-2 Integrating templates with views to render dynamic HTML content. 
+=========================================================================
+Ans: def home(request): 
+return render(request, 'home.html', {'name': 'Alice'}) 
+➢ Template (home.html): 
+<h1>Hello, {{ name }}</h1> 
+
+10. Form Validation using JavaScript 
+
+Q-1 Using JavaScript for front-end form validation.
+==========================================================
+Ans: <form onsubmit="return validateForm()"> 
+<input id="email" type="email" required> 
+<button type="submit">Submit</button> 
+</form> 
+<script> 
+function validateForm() { 
+let email = document.getElementById("email").value; 
+if (!email.includes("@")) { 
+alert("Invalid email!"); 
+return false;   
+  }  
+} 
+</script> 

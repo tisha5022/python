@@ -18,14 +18,16 @@
              <hr>
     <form action="" method="post" enctype="multipart/form-data">
         {%csrf_token%}
-        <br>
-        <label>Category</label>
-        <select>
-                <option value="clothing">Clothing</option>
-                <option value="electronic">Electronic</option>
-        </select>
-        <br><br>
+
         <input type="hidden" name="id" value="{{prod.id}}">
+        <br>
+        <select name="cat" id="cat" class="form-control" >
+            {%for cat in categories%}
+            <option value="{{cat.id}}" {%if prod.category_id == cat.id %} selected {% endif %}>{{cat.name}}</option>
+            {%endfor%}
+        </select>
+        <br>
+        
         <input type="text" name="name" placeholder="Enter product name" class="form-control" value="{{prod.name}}">
         <br>
         <input type="text" name="price" placeholder="Enter product price" class="form-control" value="{{prod.price}}">
@@ -39,7 +41,7 @@
         <br>
         <br>
         <input type="file" name="image" class="from-control">
-        <br>
+        <br><br>
         
         <input type="submit" class="btn btn-success">
         <input type="reset" class="btn btn-primary">
@@ -61,6 +63,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Qty</th>
+            <th>Category</th>
             <th>Image</th>
             <th colspan="2">Action</th>
         </tr>
@@ -70,6 +73,7 @@
             <td>{{prod.name}}</td>
             <td>{{prod.price}}</td>
             <td>{{prod.qty}}</td>
+            <td>{{prod.category.name}}</td>
             <td><img src="media/{{prod.image}}" alt="{{prod.image}}" height="50px" width="50px"></td>
             <td><a href="{%url 'delete'%}?id={{prod.id}}" class="btn btn-danger">delete</a></td>
             <td><a href="{%url 'edit'%}?id={{prod.id}}" class="btn btn-primary">edit</a></td>

@@ -2,11 +2,14 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
+from myapp.models import *
 
 # Create your views here.
 
 def index(request):
-    return render(request,"index.html")
+    products = Product.objects.all()
+    categories = Category.objects.all()
+    return render(request,"index.html",{"products":products,"categories":categories})
 
 @login_required(login_url="login-register")
 def accounts(request):
