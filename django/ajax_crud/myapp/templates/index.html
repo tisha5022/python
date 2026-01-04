@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            <!-- alert("ok") -->
+            viewStudent()
+
+            $("#upbtn").hide()
+        });
+
+        function addStudent(){
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var phone = $("#phone").val()
+            var csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val()
+
+            $.post('register',{csrfmiddlewaretoken,name,email,phone},function(rt){
+                alert(rt)
+
+                $("#name").val("")
+                $("#email").val("")
+                $("#phone").val("")
+
+                viewStudent()
+
+            })
+        }
+
+        function viewStudent(){
+            $.get("display",{},function(rt){
+
+                var rows = ""
+                rt.students.map(ele => {
+                   rows+=`<tr><td>${ele.id}</td>
+                              <td>${ele.name}</td>
+                              <td>${ele.email}</td>
+                              <td>${ele.phone}</td>
+                              <td><button class='btn btn-danger' onclick='deletestudent(${ele.id})'>Delete</button></td>
+                              <td><button class='btn btn-primary' onclick='getbyid(${ele.id})'>Edit</button></td>
+                              </tr>`
+                })
+                $("#tdata").html(rows)
+            })
+        }
+
+        function deletestudent(sid) {
+
+            $.get('delete', { sid }, function (rt) {
+                alert(rt)
+                viewStudent()
+            })
+        }
+
+         function getbyid(sid) {
+            $.get('getbyid', { sid }, function (rt) {
+
+
+                $("#id").val(rt.student[0].id)
+                $("#name").val(rt.student[0].name)
+                $("#email").val(rt.student[0].email)
+                $("#phone").val(rt.student[0].phone)
+
+                $("#upbtn").show()
+                $("#smbtn").hide()
+            })
+        }
+
+        function updateStudent() {
+
+            var id = $("#id").val()
+            var name = $("#name").val()
+            var email = $("#email").val()
+            var phone = $("#phone").val()
+            var csrfmiddlewaretoken = $('input[name="csrfmiddlewaretoken"]').val()
+
+            $.post('update', { csrfmiddlewaretoken, id, name, email, phone }, function (rt) {
+                alert(rt)
+
+                $("#id").val("")
+                $("#name").val("")
+                $("#email").val("")
+                $("#phone").val("")
+
+                viewStudent()
+
+                $("#upbtn").hide()
+                $("#smbtn").show()
+             })
+        }
+
+        function search(value) {
+            $.get("search", { value }, function (rt) {
+
+                var rows = ""
+                rt.students.map(ele => {
+                    rows += `<tr>
+                        <td>${ele.id}</td>
+                        <td>${ele.name}</td>
+                        <td>${ele.email}</td>
+                        <td>${ele.phone}</td>
+                        <td><button class='btn btn-danger' onclick='deletestudent(${ele.id})'>Delete</button></td>
+                        <td><button class='btn btn-primary' onclick='getbyid(${ele.id})'>Edit</button></td></tr>`
+                })
+                $("#tdata").html(rows)
+            })
+        }
+
+    </script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <!-- Card -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h3 class="mb-0">Student Registration</h3>
+                    </div>
+
+                    <div class="card-body">
+                       
+                            {%csrf_token%}
+                            <input type="hidden" id="id">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="phone" placeholder="Enter phone">
+                            </div>
+
+                                <button type="submit" class="btn btn-success" id="smbtn" onclick="addStudent()">Submit</button>
+                                <button type="submit" class="btn btn-success"  id="upbtn" onclick="updateStudent()">Update</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                           
+                       
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="card mt-5 shadow-sm">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Registered Students</h5>
+                    </div>
+
+                    <input type="text" class="form-control" placeholder="Search" onkeyup="search(value)">
+
+                    <div class="card-body p-0">
+                        <table class="table table-striped table-hover mb-0 text-center">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th colspan="2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tdata">
+                                <!-- Data rows will go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
