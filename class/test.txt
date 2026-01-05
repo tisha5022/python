@@ -1,3 +1,0 @@
-somethinghon
-hello java
-hello SQL
