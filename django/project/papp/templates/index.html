@@ -31,7 +31,7 @@
         <div class="categories__container swiper">
           <div class="swiper-wrapper">
             {%for cat in categories%}
-            <a href="shop.html" class="category__item swiper-slide">
+            <a href="{%url 'index'%}?cid={{cat.id}}" class="category__item swiper-slide">
               <img
                 src="media/{{cat.image}}"
                 alt=""
@@ -67,7 +67,7 @@
               {%for product in products%}
               <div class="product__item">
                 <div class="product__banner">
-                  <a href="details.html" class="product__images">
+                  <a href="{%url 'details'%}?pid={{product.id}}" class="product__images">
                     <img
                       src="media/{{product.image}}"
                       alt=""
