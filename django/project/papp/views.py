@@ -3,17 +3,37 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from papp.models import *
+from django.http import JsonResponse,HttpResponse
 
 # Create your views here.
 
 def index(request):
-    if request.GET:
-        cid = request.GET['cid']
-        products = Product.objects.filter(category_id = cid)
+    # if request.GET:
+    #     cid = request.GET['cid']
+    #     products = Product.objects.filter(category_id = cid)
+    # else:
+    #     products = Product.objects.all()
+    # categories = Category.objects.all()
+    # return render(request,"index.html",{"products":products,"categories":categories})
+    return render(request,"index.html")
+
+def get_products(request):
+    catid = request.GET['catid']
+    if int(catid) >0:
+        products = Product.objects.filter(category_id=catid)
+        return JsonResponse({"products":list(products.values())})
     else:
         products = Product.objects.all()
+        return JsonResponse({"products":list(products.values())}) 
+    
+def search_products(request):
+        q = request.GET['q']
+        products = Product.objects.filter(name__startswith=q)
+        return JsonResponse({"products":list(products.values())})
+
+def get_categories(request):
     categories = Category.objects.all()
-    return render(request,"index.html",{"products":products,"categories":categories})
+    return JsonResponse({"categories":list(categories.values())})
 
 @login_required(login_url="login-register")
 def accounts(request):
@@ -21,7 +41,25 @@ def accounts(request):
 
 @login_required(login_url="login-register")
 def cart(request):
-    return render(request,"cart.html")
+    carts = Cart.objects.filter(user=request.user)
+    return render(request,"cart.html",{"carts":carts})
+
+def addtocart(request):
+    pid = request.GET['pid']
+    product = Product.objects.get(pk=pid)
+    user = request.user
+        
+    if user.is_anonymous:
+        return HttpResponse(user)
+    else:
+        isexist = Cart.objects.filter(user=user,product=product)
+        if (len(isexist)>=1):
+            isexist[0].qty = isexist[0].qty+1
+            isexist[0].save()
+            return HttpResponse("Product added into cart")
+        else:
+            Cart.objects.create(product=product,user=user,qty=1)
+            return HttpResponse("Product added into cart")
 
 @login_required(login_url="login-register")
 def checkout(request):
