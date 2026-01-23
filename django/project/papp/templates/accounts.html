@@ -12,7 +12,7 @@
       <section class="breadcrumb">
         <ul class="breadcrumb__list flex container">
           <li><a href="index.html" class="breadcrumb__link">Home</a></li>
-          <li><span class="breadcrumb__link">></span></li>
+          <li><span class="breadcrumb__link"></span></li>
           <li><span class="breadcrumb__link">Account</span></li>
         </ul>
       </section>
@@ -51,42 +51,42 @@
             </div>
             <div class="tab__content" content id="orders">
               <h3 class="tab__header">Your Orders</h3>
+              {%for od in orders%}
               <div class="tab__body">
                 <table class="placed__order-table">
                   <thead>
                     <tr>
-                      <th>Orders</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Totals</th>
-                      <th>Actions</th>
+                      <th>PayID : {{od.payid}}</th>
+                      <th>PayType : {{od.paytype}}</th>
+                      <th>Total</th>
+                    </tr>
+                    <tr>
+                      <th>Order Date : {{od.date}}</th>
+                      <th>Status : {{od.status}}</th>
+                      <th>{{od.total}}</th>
+                    </tr>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Qty</th>
+                      <th>total</th>
                     </tr>
                   </thead>
                   <tbody>
+                    {%for i in od.details.all%}
                     <tr>
-                      <td>#1357</td>
-                      <td>March 19, 2022</td>
-                      <td>Processing</td>
-                      <td>$125.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
+                      <td>{{forloop.counter}}</td>
+                      <td>{{i.product.name}}</td>
+                      <td>{{i.price}}</td>
+                      <td>{{i.qty}}</td>
+                      <td>{{i.total_price}}</td>
                     </tr>
-                    <tr>
-                      <td>#2468</td>
-                      <td>June 29, 2022</td>
-                      <td>Completed</td>
-                      <td>$364.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
-                    <tr>
-                      <td>#2366</td>
-                      <td>August 02, 2022</td>
-                      <td>Completed</td>
-                      <td>$280.00</td>
-                      <td><a href="#" class="view__order">View</a></td>
-                    </tr>
+                    {%endfor%}
                   </tbody>
                 </table>
               </div>
+              {%endfor%}
             </div>
             <div class="tab__content" content id="update-profile">
               <h3 class="tab__header">Update Profile</h3>

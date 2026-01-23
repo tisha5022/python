@@ -28,14 +28,17 @@ class Cart(models.Model):
     
 class Order(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    data = models.DateField()
+    date = models.DateField()
     total = models.FloatField()
     status = models.CharField(max_length=20,default="pending")
     paytype = models.CharField(max_length=20,default="online")
     payid = models.CharField(max_length=50)
 
 class OrderDetails(models.Model):
-    order = models.ForeignKey(Order,on_delete=models.CASCADE)
+    order = models.ForeignKey(Order,on_delete=models.CASCADE,related_name="details")
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     qty = models.IntegerField()
     price = models.FloatField()
+    
+    def total_price(self):
+        return self.price*self.qty
