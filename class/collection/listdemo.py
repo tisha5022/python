@@ -101,4 +101,13 @@ b=[100,200,300]
 
 # print(a.count(10))
 
-print(a.index(10))
+# print(a.index(10))
+
+#interview
+
+nums = [5,7,1,3,2,4,9,8]
+
+nums = list(set(nums))      # remove duplicates
+nums.sort()
+
+print(nums[-2])  
