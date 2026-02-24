@@ -200,6 +200,10 @@
 
       rt.adr.map(ele => {
         adr += `
+          <div class="address">
+                
+                <input type="radio" name="adr" value="${ele.id}">
+                <address>
           <address class="address">
             ${ele.address}
           </address>
