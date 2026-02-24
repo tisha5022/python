@@ -181,34 +181,65 @@
     </main>
 
     <script>
+  $(document).ready(function(){
+    get_address()
+  })
 
-      $(document).ready(function(){
-        get_address()
+  function addaddress(){
+    var address = $('#adr').val()
+    $.get('add_address', { address }, function(rt){
+      get_address()
+      $('#adr').val('')
+    })
+  }
+
+  function get_address(){
+    $.get('get_address', {}, function(rt){
+
+      var adr = ""
+
+      rt.adr.map(ele => {
+        adr += `
+          <address class="address">
+            ${ele.address}
+          </address>
+
+          <a href="#" onclick="update_address(${ele.id}, '${ele.address}')">Edit</a> |
+          <a href="#" onclick="delete_address(${ele.id})">Delete</a>
+          <br><br>
+        `
       })
 
-      function addaddress(){
-        var address=$('#adr').val()
-        $.get('add_address',{address},function(rt){
-          <!-- alert(rt) -->
-          get_address()
-        })
-      }
+      $("#alladr").html(adr)
+    })
+  }
 
-      function get_address(){
-        $.get('get_address',{},function(rt){
+  function update_address(id, old_address){
 
-          var adr = ""
-          rt.adr.map(ele => {
-            adr+=`<address class="address">
-                  ${ele.address}
-                </address>
-                <a href="#" class="edit">Edit</a>
-                <br><br>`
-          })
-          $("#alladr").html(adr)
-        })
-      }
-    </script>
+    var new_address = prompt("Edit address:", old_address)
 
+    if(new_address != null){
+      $.get('update_address', {
+        id: id,
+        address: new_address
+      }, function(rt){
+        alert(rt)
+        get_address()
+      })
+    }
+  }
+
+  function delete_address(id){
+
+    if(confirm("Are you sure you want to delete this address?")){
+      $.get('delete_address', {
+        id: id
+      }, function(rt){
+        alert(rt)
+        get_address()
+      })
+    }
+  }
+</script>
 
 {%endblock%}

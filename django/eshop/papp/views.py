@@ -144,7 +144,7 @@ def changeqty(request):
 def payment(request):
 
     amt = request.GET['amt']
-    client = razorpay.Client(auth=("rzp_test_S1Hsg7YN8MlwDU", "ZKs1rK1XnjRDNd4uxjP2NcRJ"))
+    client = razorpay.Client(auth=("rzp_test_SF5R7ur5nvvYLR", "NgUDBnx9JpMGHTWixBznB0S3"))
 
     
     data = { "amount": int(amt)*100, "currency": "INR", "receipt": "order_rcptid_11" }
@@ -193,12 +193,37 @@ def makeorder(request):
 def add_address(request):
     user = request.user
     adr = request.GET.get('address')
-    adr = Address.objects.create(user=user,address=adr)
-    return HttpResponse("successfully address stored")
+    Address.objects.create(user=user, address=adr)
+    return HttpResponse("Address successfully stored")
+
 
 def get_address(request):
     address = Address.objects.filter(user=request.user)
-    return JsonResponse({'adr':list(address.values())})
+    return JsonResponse({'adr': list(address.values())})
+
+
+def update_address(request):
+    id = request.GET.get('id')
+    new_address = request.GET.get('address')
+
+    try:
+        adr = Address.objects.get(id=id, user=request.user)
+        adr.address = new_address
+        adr.save()
+        return HttpResponse("Address updated successfully")
+    except Address.DoesNotExist:
+        return HttpResponse("Address not found")
+
+
+def delete_address(request):
+    id = request.GET.get('id')
+
+    try:
+        adr = Address.objects.get(id=id, user=request.user)
+        adr.delete()
+        return HttpResponse("Address deleted successfully")
+    except Address.DoesNotExist:
+        return HttpResponse("Address not found")
 
 def forgotpass(request):
     return render(request,"forgot.html")
@@ -207,7 +232,7 @@ def password_sendmail(request):
     email = request.POST['email']
     try:
         user = User.objects.get(email=email)
-        send_mail("Password Recovery", f"http://127.0.0.1:8000/resetpass?email={email}", 
+        send_mail("Password Recovery", f"Tisha1.pythonanywhere.com/resetpass?email={email}", 
         settings.EMAIL_HOST_USER, [email])
         return render(request,"forgot.html",{"msg":"mail sent successfully"})
     except Exception as e:

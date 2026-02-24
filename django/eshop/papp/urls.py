@@ -30,4 +30,6 @@ urlpatterns = [
     path('forgotpass',forgotpass,name="forgotpass"),
     path("password-sendmail",password_sendmail,name="password-sendmail"),
     path("resetpass",resetpass,name="resetpass"),
+    path("update_address",update_address,name="update_address"),
+    path("delete_address",delete_address,name="delete_address"),
 ]
