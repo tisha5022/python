@@ -1,0 +1,374 @@
+MODULE: 1 (SDLC)
+
+1. What is software? What is software engineering?
+============================================================
+Ans. Software is a collection of programs, instructions, and data that tells a computer how to perform 
+specific tasks. It is the intangible part of a computer system (you cannot touch it), but it controls the 
+hardware and makes the computer useful.
+
+----->Examples of Software:
+
+Operating Systems – Windows, Linux
+Applications – MS Word, Chrome
+Mobile Apps – WhatsApp, Instagram
+
+----->Types of Software:
+
+System Software – Manages computer hardware (e.g., Operating System).
+Application Software – Used by users to perform tasks (e.g., MS Excel).
+Programming Software – Tools used to develop programs (e.g., Python, compilers).
+
+Software Engineering is the systematic and disciplined approach to designing, developing, testing, and 
+maintaining software.
+It applies engineering principles and methods to create high-quality, reliable, and efficient software.
+
+----->Main Activities in Software Engineering:
+
+Requirement Analysis – Understanding what the user needs.
+
+Design – Planning how the software will work.
+
+Development (Coding) – Writing the program.
+
+Testing – Checking for errors or bugs.
+
+Maintenance – Updating and improving the software.
+
+----->Example:
+When developers build a Django web application, they follow software engineering steps like planning, 
+designing database models, coding, testing, and deploying the project.
+
+2. Explain types of software 
+======================================
+Ans. Software is mainly divided into three types based on its function.
+
+1. System Software
+
+System software controls and manages the computer hardware and provides a platform for other software to 
+run.
+
+----->Functions:
+
+Manages memory, processor, and devices
+Controls system operations
+Allows application software to work
+
+----->Examples:
+
+Operating Systems (Windows, Linux)
+Device Drivers
+Utility Programs
+
+----->Example:
+
+When you start your computer, the operating system loads and manages all hardware resources.
+
+2. Application Software
+
+Application software is designed to help users perform specific tasks.
+
+------>Functions:
+
+Helps users complete tasks like writing documents, browsing the internet, or editing photos.
+
+----->Examples:
+
+MS Word
+MS Excel
+Google Chrome
+Photoshop
+WhatsApp
+
+----->Types of Application Software:
+
+General Purpose Software – Used for common tasks (Word, Excel).
+
+Customized Software – Developed for specific organizations (banking systems, hospital management systems).
+
+3. Programming Software
+
+Programming software is used by developers to create, test, and maintain programs.
+
+----->Functions:
+
+Helps programmers write code
+Converts code into machine language
+Helps in debugging programs
+
+----->Examples:
+
+Compilers
+Interpreters
+Code Editors
+IDEs (Integrated Development Environment)
+
+----->Example Tools:
+
+Python
+Visual Studio Code
+PyCharm
+
+3. What is SDLC? Explain each phase of SDLC  
+=================================================
+Ans. SDLC (Software Development Life Cycle) is a process used to develop software in a systematic and 
+organized way. It defines the steps required to plan, create, test, and maintain software to ensure high 
+quality and efficiency.
+
+------>Phases of SDLC
+
+SDLC mainly consists of six phases.
+
+1. Requirement Analysis
+
+In this phase, developers and analysts collect and analyze the requirements of the client or user.
+
+----->Activities:
+
+Understand user needs
+Identify system requirements
+Prepare requirement documents
+
+----->Example:
+If creating an e-commerce website, requirements may include user login, product listing, shopping cart, 
+and payment system.
+
+2. System Design
+
+In this phase, the structure and architecture of the software are designed based on the requirements.
+
+----->Activities:
+
+Designing database
+Creating system architecture
+Designing user interface
+
+----->Example:
+Designing how the website pages, database tables, and navigation will work.
+
+3. Implementation (Coding)
+
+In this phase, developers write the actual code to build the software according to the design.
+
+----->Activities:
+
+Writing program code
+Developing modules
+Integrating components
+
+----->Example:
+Developers write code using languages like Python, Java, or C++.
+
+4. Testing
+
+In this phase, the software is tested to find and fix errors or bugs.
+
+------>Activities:
+
+Checking functionality
+Detecting bugs
+Ensuring software works correctly
+
+----->Types of Testing:
+
+Unit Testing
+Integration Testing
+System Testing
+
+5. Deployment
+
+After successful testing, the software is released for users to use.
+
+----->Activities:
+
+Installing software
+Configuring system
+Launching the product
+
+----->Example:
+Uploading a website to a live server so users can access it.
+
+6. Maintenance
+
+This phase occurs after deployment where the software is updated, improved, and bugs are fixed.
+
+----->Activities:
+
+Fixing errors
+Updating features
+Improving performance
+
+4. What is DFD? Create a DFD diagram on Flipkart  
+============================================================
+Ans. A Data Flow Diagram (DFD) is a graphical representation that visualizes how data moves throughout a 
+system. It illustrates the flow of information, including inputs, outputs, data stores, and the processes 
+that transform data. DFDs are used to map out the flow of information for any process or system, such as 
+an e-commerce platform.
+
+----->Key Components of a DFD
+
+External Entity: Objects outside the system that send or receive data (e.g., Customer, Seller, Bank).
+Process: Actions that transform input data into output.
+Data Store: Repositories holding information, such as databases or files.
+Data Flow: Arrows indicating the direction of information movement.
+
+----->DFD Levels
+
+Context Diagram (Level 0): A high-level overview showing the entire system as a single process and its 
+interaction with external entities.
+Level 1 DFD: Breaks down the main system process into sub-processes.
+
+----->DFD Diagram: Flipkart Online Shopping System
+
+Below is a description of the DFD levels for a system like Flipkart.
+1. Context Level (Level 0) DFD
+External Entities: Customer, Seller, Bank, Administrator.
+System Process: Flipkart E-commerce System.
+
+Data Flows:
+Customer 
+ (Registration/Order) 
+ System
+System 
+ (Order Confirmation/Product) 
+ Customer
+System 
+ (Payment Request) 
+ Bank
+Bank 
+ (Payment Status) 
+ System
+Seller 
+ (Product Details) 
+ System
+System 
+ (Shipping Details) 
+ Seller
+
+2. Level 1 DFD (Detailed)
+
+This level breaks down the system into core functional processes:
+User Management: Processes customer registration and login. Data Store: Customer DB.
+Product Search/Browse: Allows searching. Data Store: Product Inventory.
+Order Management: Processes buying, cart management, and order placement. Data Store: Orders DB.
+Payment Processing: Connects with external banks to verify payment. Data Store: Transaction Log.
+Shipping & Delivery: Updates shipment status. Data Store: Inventory DB.
+Textual Representation of Data Flow (Level 1):
+
+Customer 
+ Search Query 
+ 1.0 Product Search 
+ Product Data 
+ Customer.
+Customer 
+ Order Details 
+ 2.0 Order Management 
+ Payment Info 
+ 3.0 Payment Processing.
+3.0 Payment Processing 
+ Payment Success 
+ 4.0 Shipping & Delivery 
+ Tracking Info 
+ Customer.
+4.0 Shipping & Delivery 
+ Update Stock 
+ Product Inventory (Data Store).
+
+----->Benefits of DFD in System Design
+
+Visual Representation: Simplifies complex systems for technical and non-technical users.
+System Analysis: Helps identify inefficiencies or bottlenecks.
+Documentation: Acts as a blueprint for software development, such as database creation. 
+
+
+5. What is Flow chart? Create a flowchart to make addition of two numbers 
+================================================================================
+Ans. A flowchart is a diagram that represents a process or algorithm using symbols and arrows. It shows 
+the step-by-step flow of operations needed to solve a problem or complete a task.
+
+----->Common symbols used in flowcharts:
+
+🔵 Oval – Start/End
+
+▭ Rectangle – Process (calculation or action)
+
+🔷 Parallelogram – Input/Output
+
+➡️ Arrow – Direction of flow
+
+----->Flowchart for Addition of Two Numbers 
+
+Steps involved:
+
+1. Start
+
+2. Input two numbers (A and B)
+
+3. Calculate Sum = A + B
+
+4. Display the Sum
+
+5. End
+
+----->Flowchart representation:
+
+        ┌───────────┐
+        │   Start   │
+        └─────┬─────┘
+              │
+      ┌───────────────┐
+      │ Input A and B │
+      └─────┬─────────┘
+            │
+     ┌───────────────┐
+     │ Sum = A + B   │
+     └─────┬─────────┘
+           │
+     ┌───────────────┐
+     │ Display Sum   │
+     └─────┬─────────┘
+           │
+       ┌─────────┐
+       │   End   │
+       └─────────┘
+
+6. What is Use case Diagram? Create a use-case on bill payment on paytm.  
+==============================================================================
+Ans. Use Case Diagram for Bill Payment in Paytm
+Definition of Use Case Diagram
+
+A Use Case Diagram is a type of UML (Unified Modeling Language) diagram that shows the interaction between 
+users (actors) and a system. It describes the functions or services (use cases) that the system provides 
+to the user.
+
+Use case diagrams are mainly used during the requirement analysis phase of system development.
+
+----->Components
+
+Actor – The person or external entity interacting with the system (User).
+Use Case – The activity performed in the system (Pay Bill, Login, etc.).
+System Boundary – The system in which the use cases occur.
+Association – The relationship between actor and use case.
+
+----->Use Case Diagram (Bill Payment)
+
+                    +----------------------------------+
+                    |              Paytm               |
+                    |                                  |
+                    |   (Login / Register)             |
+                    |          ^                       |
+                    |          |                       |
+User -------------->|   (Select Bill Payment)          |
+                    |          |                       |
+                    |   (Choose Bill Type)             |
+                    |          |                       |
+                    |   (Enter Consumer Details)       |
+                    |          |                       |
+                    |   (View Bill Amount)             |
+                    |          |                       |
+                    |   (Select Payment Method)        |
+                    |          |                       |
+                    |   (Confirm Payment)              |
+                    |          |                       |
+                    |   (Receive Payment Receipt)      |
+                    |                                  |
+                    +----------------------------------+

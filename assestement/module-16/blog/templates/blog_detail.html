@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{post.title}}</h2>
+
+<p>Author : {{post.author.username}}</p>
+
+{% if post.cover_image %}
+<img src="{{post.cover_image.url}}" class="img-fluid mb-3">
+{% endif %}
+
+<p>{{post.content}}</p>
+
+<a href="/like/{{post.id}}/" class="btn btn-danger">
+Like ({{post.like_set.count}})
+</a>
+
+<a href="/follow/{{post.author.id}}/" class="btn btn-primary">
+Follow {{post.author.username}}
+</a>
+
+<hr>
+
+<h4>Comments</h4>
+
+{% for c in comments %}
+
+<div class="border p-2 mb-2">
+
+<strong>{{c.user.username}}</strong>
+
+<p>{{c.comment}}</p>
+
+</div>
+
+{% endfor %}
+
+
+<form method="POST" action="/comment/{{post.id}}/">
+
+{% csrf_token %}
+
+<textarea name="comment" class="form-control"></textarea>
+
+<button class="btn btn-success mt-2">
+Add Comment
+</button>
+
+</form>
+
+{% endblock %}

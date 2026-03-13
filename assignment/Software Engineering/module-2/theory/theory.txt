@@ -1,0 +1,52 @@
+MODULE: 2 (HTML) 
+
+1. Define the terms: Website, Webpage, Web browser, Web server, HTML, CSS 
+===================================================================================
+Ans. 
+1. Website
+
+A website is a collection of related web pages that are connected together and available on the internet 
+under a common domain name.
+
+Example: google.com, amazon.com
+
+2. Webpage
+
+A webpage is a single document or page of a website that is written using HTML and displayed in a web 
+browser.
+
+Example: Home page, About page, Contact page.
+
+3. Web Browser
+
+A web browser is a software application used to access and display web pages on the internet.
+
+Examples: Google Chrome, Mozilla Firefox, Microsoft Edge.
+
+4. Web Server
+
+A web server is a computer or software that stores website files and delivers them to users through the 
+internet when requested.
+
+Example: Apache Server, Nginx.
+
+5. HTML
+
+HTML (HyperText Markup Language) is the standard language used to create the structure of web pages.
+
+It uses tags like <html>, <head>, <body>, <p>.
+
+6. CSS
+
+CSS (Cascading Style Sheets) is used to design and style HTML pages such as colors, fonts, spacing, layout
+, etc.  
+
+2. In how many ways can a CSS be integrated as a web page?  
+==================================================================
+Ans. CSS can be integrated into a web page in three ways:
+
+1. Inline CSS – CSS is applied directly inside an HTML tag using the style attribute.
+
+2.Internal CSS – CSS is written inside the <style> tag in the <head> section of an HTML page.
+
+3. External CSS – CSS is written in a separate .css file and linked to the HTML page using the <link> tag.

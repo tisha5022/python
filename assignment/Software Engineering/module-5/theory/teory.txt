@@ -1,0 +1,282 @@
+MODULE: 5 (Database) 
+
+1. What do you understand By Database  
+============================================
+Ans. A database is an organized collection of structured or unstructured data stored electronically in a 
+computer system for easy access, management, and updating.
+
+It acts as a digital repository that stores large amounts of information and is usually managed by a 
+Database Management System (DBMS) such as MySQL or Oracle.
+
+----->Key Aspects of Databases
+
+1. Structure
+Data is organized in tables with rows and columns (relational databases) or other formats like documents, 
+graphs, or key-value pairs (non-relational databases).
+
+2. Purpose
+Databases store large amounts of information efficiently and support applications like websites, banking 
+systems, and business applications.
+
+3. Management (DBMS)
+A DBMS such as MySQL, Oracle, or MongoDB helps users and applications create, access, modify, and manage 
+data securely.
+
+----->Types of Databases
+
+1. Relational Database (SQL)
+Stores data in structured tables with rows and columns.
+Example: MySQL, Oracle.
+
+2. Non-Relational Database (NoSQL)
+Stores data in flexible formats such as documents, graphs, or key-value pairs.
+Example: MongoDB.
+
+----->Key Benefits
+
+- Ensures data integrity
+- Provides data security
+- Allows efficient storage and retrieval
+- Supports complex queries and data analysis
+
+2. What is Normalization?  
+===============================
+Ans. Normalization is the process of organizing data in a database to reduce redundancy and improve data 
+integrity.
+
+It divides large tables into smaller related tables and establishes relationships between them.
+
+----->Objectives of Normalization
+
+- Reduce data duplication
+- Improve data consistency
+- Organize data efficiently
+- Maintain data integrity
+
+----->Types (Normal Forms)
+
+- 1NF (First Normal Form) – Removes repeating groups and ensures each field contains atomic values.
+- 2NF (Second Normal Form) – Removes partial dependency from the table.
+- 3NF (Third Normal Form) – Removes transitive dependency and ensures data depends only on the primary key.
+
+3. What is Difference between DBMS and RDBMS?  
+==================================================
+Ans. DBMS
+
+- DBMS (Database Management System) is software used to store and manage data in a database.
+- Data is usually stored in files.
+- It does not support strong relationships between tables.
+- It is suitable for small applications and small amounts of data.
+- Security and data integrity are less compared to RDBMS.
+- Examples: dBase, FoxPro.
+
+RDBMS
+
+- RDBMS (Relational Database Management System) is an advanced form of DBMS.
+- Data is stored in tables with rows and columns.
+- It supports relationships between tables using primary keys and foreign keys.
+- It is suitable for large and complex applications.
+- It provides better security, consistency, and data integrity.
+- Examples: MySQL, Oracle, SQL Server.
+
+4. What is MF Cod Rule of RDBMS Systems?  
+=================================================
+Ans. MF Codd’s Rules are a set of 13 rules proposed by Dr. Edgar F. Codd to define what a Relational 
+Database Management System (RDBMS) should follow.
+These rules ensure that a database truly works according to the relational model.
+
+----->Important Rules of Codd
+
+1. Information Rule
+All data in the database must be stored in the form of tables (rows and columns).
+
+2. Guaranteed Access Rule
+Every data item should be accessible using table name, primary key, and column name.
+
+3. Systematic Treatment of NULL Values
+The system must support NULL values to represent missing or unknown data.
+
+4. Active Online Catalog
+The database structure (metadata) must be stored in the database and accessible to users.
+
+5. Comprehensive Data Sublanguage Rule
+The database must support a language like SQL for data definition, manipulation, and control.
+
+6. View Updating Rule
+Users should be able to update data through views when possible.
+
+7. High-Level Insert, Update, Delete
+The system should support insert, update, and delete operations on multiple rows at once.
+
+8. Physical Data Independence
+Changes in physical storage should not affect the application.
+
+9. Logical Data Independence
+Changes in table structure should not affect applications.
+
+10. Integrity Independence
+Integrity constraints should be defined separately from application programs.
+
+11. Distribution Independence
+Users should not know whether data is stored in one location or distributed.
+
+12. Non-Subversion Rule
+If a low-level language is used, it must not bypass the relational integrity rules.
+
+5. What do you understand By Data Redundancy?  
+==================================================
+Ans. Data Redundancy
+
+Data Redundancy means storing the same data in multiple places in a database.
+
+It occurs when the same information is duplicated unnecessarily, which can lead to data inconsistency and 
+increased storage usage.
+
+----->Example
+
+If a student's name and address are stored in multiple tables, the same data is repeated many times. This 
+is called data redundancy.
+
+----->Disadvantages of Data Redundancy
+
+- Wastes storage space
+- Causes data inconsistency
+- Makes database management difficult
+
+6. What is DDL Interpreter? 
+=================================
+Ans. A DDL Interpreter is a component of a Database Management System (DBMS) that processes and executes 
+Data Definition Language (DDL) commands.
+
+It interprets commands such as CREATE, ALTER, and DROP to define or modify the database structure like 
+tables, schemas, and indexes.
+
+-----> Example
+
+When a user writes a command like:
+
+CREATE TABLE Student (
+ID INT,
+Name VARCHAR(50)
+);
+
+The DDL Interpreter processes this command and creates the table structure in the database.
+
+7. What is DML Compiler in SQL?  
+========================================
+Ans. A DML Compiler is a component of a Database Management System (DBMS) that translates DML (Data 
+Manipulation Language) statements into low-level instructions that the database system can understand and 
+execute.
+
+It processes commands used to retrieve, insert, update, and delete data in the database.
+
+----->Examples of DML Commands
+
+- SELECT
+- INSERT
+- UPDATE
+- DELETE
+
+----->Example
+
+SELECT * FROM Student;
+
+The DML Compiler converts this query into instructions so the DBMS can fetch the required data from the 
+database.
+
+8. What is SQL Key Constraints writing an Example of SQL Key Constraints   
+============================================================================
+Ans. SQL Key Constraints are rules used in a database table to ensure data accuracy, uniqueness, and 
+relationships between tables.
+
+They help maintain data integrity by restricting the type of data that can be inserted into a table.
+
+----->Types of SQL Key Constraints
+
+- Primary Key
+- Foreign Key
+- Unique Key
+- Not Null
+- Check
+- Default
+
+----->Example of SQL Key Constraint
+
+CREATE TABLE Student (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) UNIQUE,
+    Age INT CHECK (Age >= 18)
+);
+
+----->Explanation
+
+- PRIMARY KEY → Uniquely identifies each record in the table.
+- NOT NULL → Ensures the column cannot store NULL values.
+- UNIQUE → Ensures all values in the column are different.
+- CHECK → Ensures the value satisfies a specific condition.
+
+9. What is save Point? How to create a save Point write a Query? 
+=========================================================================
+Ans. A Save Point is a point within a transaction in SQL that allows you to roll back (undo) part of a 
+transaction instead of the entire transaction.
+
+It helps in controlling transactions and allows the database to return to a specific point if an error 
+occurs.
+
+----->How to Create a Save Point (Query)
+
+SAVEPOINT savepoint_name;
+
+----->Example
+
+BEGIN;
+
+INSERT INTO Student VALUES (1,'Rahul');
+
+SAVEPOINT sp1;
+
+INSERT INTO Student VALUES (2,'Amit');
+
+ROLLBACK TO sp1;
+
+COMMIT;
+
+----->Explanation
+
+- SAVEPOINT sp1 → Creates a save point in the transaction.
+- ROLLBACK TO sp1 → Returns the database to the save point sp1.
+- COMMIT → Saves the final changes permanently.
+
+10. What is trigger and how to create a Trigger in SQL?  
+============================================================
+Ans. A Trigger is a special type of stored procedure in a database that automatically executes (fires) 
+when a specific event occurs on a table.
+
+Triggers are usually activated by INSERT, UPDATE, or DELETE operations.
+
+----->Syntax to Create a Trigger
+
+CREATE TRIGGER trigger_name
+BEFORE INSERT
+ON table_name
+FOR EACH ROW
+BEGIN
+END;
+
+----->Example
+
+CREATE TRIGGER student_trigger
+BEFORE INSERT
+ON Student
+FOR EACH ROW
+BEGIN
+   SET NEW.Name = UPPER(NEW.Name);
+END;
+
+----->Explanation
+
+- CREATE TRIGGER → Creates a trigger.
+- BEFORE INSERT → Trigger runs before inserting data.
+- ON Student → Trigger is applied to the Student table.
+- SET NEW.Name = UPPER(NEW.Name) → Converts the name to uppercase before storing. 
